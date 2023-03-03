@@ -1,7 +1,6 @@
 import { HttpException } from '../exceptions/HttpException';
 import { ProductRepository } from '../repositories';
 import { productCreateDto, productDto } from '../schemas';
-import logger from '../utils/logger';
 
 export class ProductService {
   private productRepository;
@@ -11,18 +10,12 @@ export class ProductService {
   }
 
   public async create(data: productCreateDto): Promise<productDto> {
-    try {
-      const { name } = data;
-      const product = await this.productRepository.findByName(name);
+    const { name } = data;
+    const product = await this.productRepository.findByName(name);
 
-      if (product) throw new HttpException(400, 'product name already exist');
+    if (product) throw new HttpException(400, 'product name already exist');
 
-      return this.productRepository.create(data);
-    } catch (error) {
-      if (error instanceof HttpException) throw error;
-      logger.error(error);
-      throw error;
-    }
+    return this.productRepository.create(data);
   }
 
   public async findAll(): Promise<productDto[]> {
