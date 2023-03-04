@@ -4,7 +4,7 @@ import saleRouter from './sale-order.route';
 
 const router = Router();
 
-router.use('/sale-order', saleRouter);
+router.use('/sale-orders', saleRouter);
 router.use('/products', productRouter);
 
 export default router;

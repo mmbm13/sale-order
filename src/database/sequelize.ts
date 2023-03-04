@@ -9,7 +9,8 @@ export const sequelize = new Sequelize({
   models: [__dirname + '/models/**/*.model.ts'],
   modelMatch: (filename, member) => {
     return (
-      filename.substring(0, filename.indexOf('.model')) === member.toLowerCase()
+      filename.substring(0, filename.indexOf('.model')).replace(/-/g, '') ===
+      member.toLowerCase()
     );
   },
 });

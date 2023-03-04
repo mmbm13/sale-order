@@ -1,4 +1,6 @@
 import { Request, Response, Router } from 'express';
+import validate from '../middlewares/validate.middleware';
+import { createSaleOrderSchema } from '../schemas';
 
 class ControllerMock {
   public index = (req: Request, res: Response) => {
@@ -13,6 +15,9 @@ class ControllerMock {
 const router = Router();
 const controller = new ControllerMock();
 
-router.route('/').get(controller.index).post(controller.create);
+router
+  .route('/')
+  .get(controller.index)
+  .post(validate(createSaleOrderSchema, 'body'), controller.create);
 
 export default router;

@@ -13,6 +13,8 @@ router
 
 router
   .route('/:id')
-  .get(validate(findProductSchema, 'params'), controller.findById);
+  .get(validate(findProductSchema, 'params'), controller.findById)
+  .patch(validate(findProductSchema, 'params'), controller.update)
+  .delete(validate(findProductSchema, 'params'), controller.delete);
 
 export default router;

@@ -7,12 +7,12 @@ export interface productDto {
   sku: string;
   stock: number;
   createdAt?: Date;
-  updateAt?: Date;
+  updatedAt?: Date;
 }
 
 export type productCreateDto = Omit<
   productDto,
-  'id' | 'createdAt' | 'updateAt'
+  'id' | 'createdAt' | 'updatedAt'
 >;
 
 export const createProductSchema = Joi.object<productCreateDto>({

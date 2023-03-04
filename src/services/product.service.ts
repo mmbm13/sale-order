@@ -27,4 +27,14 @@ export class ProductService {
     if (!product) throw new HttpException(404, 'product not found');
     return product;
   }
+
+  public async update(id: string, data: Partial<productDto>): Promise<void> {
+    const isUpdated = await this.productRepository.update(id, data);
+    if (!isUpdated) throw new HttpException(404, 'product not found to update');
+  }
+
+  public async delete(id: string): Promise<void> {
+    const isDeleted = await this.productRepository.delete(id);
+    if (!isDeleted) throw new HttpException(404, 'product not found to delete');
+  }
 }

@@ -36,4 +36,26 @@ export class ProductController {
       next(error);
     }
   };
+
+  public update = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = req.params.id;
+      const data: Partial<productCreateDto> = req.body;
+
+      await this.productService.update(id, data);
+      res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  public delete = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = req.params.id;
+      await this.productService.delete(id);
+      res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  };
 }

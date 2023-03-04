@@ -21,4 +21,14 @@ export class ProductRepository {
     const product = await Product.findOne({ where: { id } });
     return product;
   }
+
+  public async update(id: string, data: Partial<productDto>): Promise<boolean> {
+    const updated = await Product.update({ ...data }, { where: { id } });
+    return !!updated[0];
+  }
+
+  public async delete(id: string): Promise<boolean> {
+    const updated = await Product.destroy({ where: { id } });
+    return !!updated;
+  }
 }
