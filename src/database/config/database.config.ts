@@ -1,6 +1,5 @@
 import { Dialect } from 'sequelize';
-
-export default (): Config => ({
+const config: Config = {
   development: {
     username: process.env.DB_USERNAME || 'root',
     password: process.env.DB_PASSWORD || 'root',
@@ -12,7 +11,7 @@ export default (): Config => ({
   test: {
     username: process.env.DB_USERNAME || 'root',
     password: process.env.DB_PASSWORD || 'root',
-    database: process.env.DB_DATABASE || 'testDataBase',
+    database: process.env.DB_DATABASE || 'devDataBase',
     host: process.env.DB_HOST || '127.0.0.1',
     port: Number(process.env.DB_PORT) || 5432,
     dialect: 'postgres',
@@ -25,7 +24,9 @@ export default (): Config => ({
     port: Number(process.env.DB_PORT) || 5432,
     dialect: 'postgres',
   },
-});
+};
+
+export default config;
 
 interface DataBaseconfig {
   username: string;

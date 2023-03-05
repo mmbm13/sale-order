@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ProductController } from '../contollers/product.controller';
+import { ProductController } from '../contollers';
 import validate from '../middlewares/validate.middleware';
 import { createProductSchema, findProductSchema } from '../schemas';
 

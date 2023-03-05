@@ -22,7 +22,7 @@ export class ProductService {
     return this.productRepository.findAll();
   }
 
-  public async findById(id: string): Promise<productDto> {
+  public async findById(id: number): Promise<productDto> {
     const product = await this.productRepository.findById(id);
     if (!product) throw new HttpException(404, 'product not found');
     return product;

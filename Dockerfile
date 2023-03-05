@@ -19,4 +19,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install 
 COPY . ./
+ADD entrypoint.sh /opt/utils/config.sh
+RUN chmod +x /opt/utils/config.sh
 EXPOSE 3001
+ENTRYPOINT [ "/opt/utils/config.sh" ]

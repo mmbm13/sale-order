@@ -10,7 +10,6 @@ services:
     env_file: .env
     privileged: true
     stdin_open: true
-    command: npm run dev
     ports:
       - 3001:3001
     volumes:

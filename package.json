@@ -9,6 +9,7 @@
     "start:docker": "docker-compose up",
     "start": "npm run build && node dist/index.js",
     "dev": "nodemon",
+    "migrate": "node node_modules/.bin/sequelize db:migrate",
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix"
@@ -25,7 +26,7 @@
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.29.0",
-    "sequelize-cli": "^6.6.0",
+    "sequelize-cli": "^6.3.0",
     "sequelize-typescript": "^2.1.5",
     "sqlite3": "^5.1.4",
     "swagger-ui-express": "^4.6.2",
@@ -56,5 +57,22 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^3.14.2",
     "typescript": "^4.9.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }

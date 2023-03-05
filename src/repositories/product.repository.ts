@@ -13,12 +13,12 @@ export class ProductRepository {
   }
 
   public async findByName(name: string): Promise<productDto | null> {
-    const product = await Product.findOne({ where: { name } });
+    const product = await Product.findOne({ where: { name }, limit: 1 });
     return product;
   }
 
-  public async findById(id: string): Promise<productDto | null> {
-    const product = await Product.findOne({ where: { id } });
+  public async findById(id: number): Promise<productDto | null> {
+    const product = await Product.findByPk(id);
     return product;
   }
 
@@ -28,7 +28,7 @@ export class ProductRepository {
   }
 
   public async delete(id: string): Promise<boolean> {
-    const updated = await Product.destroy({ where: { id } });
-    return !!updated;
+    const deleted = await Product.destroy({ where: { id } });
+    return !!deleted;
   }
 }

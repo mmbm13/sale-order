@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import config from './config/database.config';
 
 const env = process.env.NODE_ENV || 'development';
-const options = (config() as any)[env];
+const options = (config as any)[env];
 
 export const sequelize = new Sequelize({
   ...options,

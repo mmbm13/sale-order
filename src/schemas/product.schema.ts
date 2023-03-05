@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 export interface productDto {
-  id?: string;
+  id?: number;
   name: string;
   description: string;
   sku: string;
