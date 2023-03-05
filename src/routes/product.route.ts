@@ -1,18 +1,20 @@
-import { Request, Response, Router } from 'express';
-
-class ControllerMock {
-  public index = (req: Request, res: Response) => {
-    res.send('Index Route Product');
-  };
-
-  public create = (req: Request, res: Response) => {
-    res.send('Create Route Product');
-  };
-}
+import { Router } from 'express';
+import { ProductController } from '../contollers';
+import validate from '../middlewares/validate.middleware';
+import { createProductSchema, findProductSchema } from '../schemas';
 
 const router = Router();
-const controller = new ControllerMock();
+const controller = new ProductController();
 
-router.route('/').get(controller.index).post(controller.create);
+router
+  .route('/')
+  .get(controller.index)
+  .post(validate(createProductSchema, 'body'), controller.create);
+
+router
+  .route('/:id')
+  .get(validate(findProductSchema, 'params'), controller.findById)
+  .patch(validate(findProductSchema, 'params'), controller.update)
+  .delete(validate(findProductSchema, 'params'), controller.delete);
 
 export default router;
