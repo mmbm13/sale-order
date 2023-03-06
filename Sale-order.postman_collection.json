@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "4d932e91-3ee3-4574-80b3-cbd8680aef46",
+		"name": "Sale-order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9096611"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"product 3\",\n    \"description\": \"descripcion producto 2\",\n    \"sku\": \"AF-003\",\n    \"stock\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/products",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/products",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/products/1",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sku\": \"AF-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/products/1",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/products/3",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"products",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale Orders",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"Quote\",\n    \"customerId\": 1,\n    \"details\": [\n        {\n            \"productId\": 1,\n            \"price\": 10,\n            \"discount\": 50,\n            \"quantity\": 5\n        },\n        {\n            \"productId\": 2,\n            \"price\": 10,\n            \"discount\": 50,\n            \"quantity\": 7\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/sale-orders",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"sale-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/sale-orders",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"sale-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/sale-orders/1",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"sale-orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "intern-token",
+								"value": "26348400cd1446bfc270d67f59c656fce836ed2bc47cb4163a2e23b23462e304",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/sale-orders/1",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"sale-orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}/sale-orders/1",
+							"host": [
+								"{{URL_LOCAL}}{{BASE_PATH}}{{VERSION}}"
+							],
+							"path": [
+								"sale-orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_LOCAL",
+			"value": "localhost:3001",
+			"type": "string"
+		},
+		{
+			"key": "URL_DEV",
+			"value": "url.devDomain",
+			"type": "string"
+		},
+		{
+			"key": "VERSION",
+			"value": "/v1",
+			"type": "string"
+		},
+		{
+			"key": "BASE_PATH",
+			"value": "/api",
+			"type": "string"
+		}
+	]
+}

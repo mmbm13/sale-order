@@ -17,6 +17,7 @@ export class SaleOrderRepository {
   }
 
   public async findAll() {
+    // TODO Implement pagination with 15 items per page
     const orders = await SaleOrder.findAll({
       include: [
         { model: Customer, attributes: [] },
@@ -50,6 +51,16 @@ export class SaleOrderRepository {
   public async findById(id: number): Promise<any | null> {
     const order = await SaleOrder.findByPk(id, {
       include: [Product, Customer],
+      attributes: [
+        'status',
+        'notes',
+        'shippingAddress',
+        'updatedAt',
+        [
+          sequelize.literal(`concat('${this.PREFIX}-', "SaleOrder".id)`),
+          'order',
+        ],
+      ],
     });
     return order;
   }

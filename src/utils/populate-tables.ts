@@ -41,6 +41,12 @@ export default async function populate() {
       sku: 'AF-002',
       stock: 25,
     },
+    {
+      name: 'product 3',
+      description: 'description product 3',
+      sku: 'AF-003',
+      stock: 15,
+    },
   ]);
 
   await SaleOrder.bulkCreate([
@@ -54,6 +60,18 @@ export default async function populate() {
       customerId: 1,
       status: SaleOrderStatus.PAID,
       notes: 'some notes 2',
+      shippingAddress: '22222222',
+    },
+    {
+      customerId: 2,
+      status: SaleOrderStatus.DELIVERED,
+      notes: 'some notes 3',
+      shippingAddress: '22222222',
+    },
+    {
+      customerId: 2,
+      status: SaleOrderStatus.Billed,
+      notes: 'some notes 3',
       shippingAddress: '22222222',
     },
   ]);
@@ -82,6 +100,30 @@ export default async function populate() {
       productId: 2,
       price: 40000,
       quantity: 7,
+    },
+    {
+      saleOrderId: 3,
+      productId: 2,
+      price: 40000,
+      quantity: 7,
+    },
+    {
+      saleOrderId: 4,
+      productId: 2,
+      price: 40000,
+      quantity: 7,
+    },
+    {
+      saleOrderId: 4,
+      productId: 1,
+      price: 25000,
+      quantity: 2,
+    },
+    {
+      saleOrderId: 4,
+      productId: 3,
+      price: 75000,
+      quantity: 5,
     },
   ]);
 }
