@@ -24,14 +24,15 @@ describe('Sale-order e2e test', () => {
     const {body, status} = await request(app).get('/api/v1/sale-orders');
     expect(status).toBe(200);
     expect(body).toBeDefined();       
-    expect(body).toHaveLength(2);       
+    expect(body).toHaveLength(4);       
   });
 
   it('response statusCode 200 / findById with aggregate data', async () => {
     const {body, status} = await request(app).get('/api/v1/sale-orders/1');
     expect(status).toBe(200);
     expect(body).toBeDefined();       
-    expect(body.id).toBe(1);
+    expect(body.order).toBeDefined();
+    expect(body.order.split('-')[1]).toBe("1");
     expect(body.products).toBeDefined();
     expect(body.products).toHaveLength(2);
     expect(body.customer).toBeDefined();
